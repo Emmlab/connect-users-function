@@ -11,7 +11,7 @@ module.exports = async function ({ req, res, log }) {
       const users = new sdk.Users(client);
       const result = await users.list();
       log({ result });
-      return res.json({ ok: true, message: 'Successfull' }, 200);
+      return res.send({ ok: true, message: 'Successfull', data: result }, 200);
     } catch (error) {
       // log('Error: ', getError);
       return res.json(
