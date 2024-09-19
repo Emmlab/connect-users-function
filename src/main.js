@@ -9,9 +9,9 @@ module.exports = async function ({ req, res, log, error }) {
   if (req.method === 'GET') {
     try {
       const users = new sdk.Users(client);
-      const result = await users.list();
-      log({ result });
-      return res.send(result, 200);
+      const data = await users.list();
+      log({ data });
+      return res.send(data, 200);
     } catch (errorResponse) {
       error('Error: ', errorResponse);
       return res.send(
