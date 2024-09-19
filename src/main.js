@@ -14,7 +14,7 @@ module.exports = async function ({ req, res }) {
       return res.json({ ok: true, message: 'Successfull' }, 200);
     } catch (error) {
       // log('Error: ', getError);
-      return res.send(
+      return res.json(
         { message: 'Something went wrong!', error: JSON.stringify(error) },
         400
       );
