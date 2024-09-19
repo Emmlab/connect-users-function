@@ -11,10 +11,10 @@ module.exports = async function ({ req, res, log }) {
       const users = new sdk.Users(client);
       const result = await users.list();
       log({ result });
-      return res.send({ ok: true, message: 'Successfull', data: result }, 200);
+      return res.send(result, 200);
     } catch (error) {
       // log('Error: ', getError);
-      return res.json(
+      return res.send(
         { message: 'Something went wrong!', error: JSON.stringify(error) },
         400
       );
