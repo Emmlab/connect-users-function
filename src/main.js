@@ -1,6 +1,6 @@
 const sdk = require('node-appwrite');
 
-module.exports = async function ({ req, res, log }) {
+module.exports = async function ({ req, res, log, error }) {
   const client = new sdk.Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
     .setProject(process.env.APPWRITE_PROJECT_ID) // Your project ID
@@ -12,10 +12,13 @@ module.exports = async function ({ req, res, log }) {
       const result = await users.list();
       log({ result });
       return res.send(result, 200);
-    } catch (error) {
-      // log('Error: ', getError);
+    } catch (errorResponse) {
+      error('Error: ', errorResponse);
       return res.send(
-        { message: 'Something went wrong!', error: JSON.stringify(error) },
+        {
+          message: 'Something went wrong!',
+          error: JSON.stringify(errorResponse),
+        },
         400
       );
     }
