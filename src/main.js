@@ -7,9 +7,18 @@ module.exports = async function ({ req, res }) {
     .setKey(process.env['APPWRITE_FUNCTION_API_KEY']); // Your secret API key
 
   if (req.method === 'GET') {
-    const users = new sdk.Users(client);
-    const result = await users.list();
-    return res.send({ message: 'Successfull', data: result }, 200);
+    try {
+      const users = new sdk.Users(client);
+      const result = await users.list();
+      console.log({ result });
+      return res.send({ message: 'Successfull', data: result }, 200);
+    } catch (error) {
+      // log('Error: ', getError);
+      return res.send(
+        { message: 'Something went wrong!', error: JSON.stringify(error) },
+        400
+      );
+    }
   }
   return res.send('Something went wrong', 400);
 };
