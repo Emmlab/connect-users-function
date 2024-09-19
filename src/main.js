@@ -8,8 +8,8 @@ module.exports = async function ({ req, res }) {
 
   if (req.method === 'GET') {
     try {
-      // const users = new sdk.Users(client);
-      // const result = await users.list();
+      const users = new sdk.Users(client);
+      const result = await users.list();
       // console.log({ result });
       return res.json({ ok: true, message: 'Successfull' }, 200);
     } catch (error) {
