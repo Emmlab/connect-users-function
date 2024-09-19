@@ -1,10 +1,10 @@
 const sdk = require('node-appwrite');
 
 module.exports = async function ({ req, res }) {
-  const client = new sdk.Client()
-    .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
-    .setProject(process.env['APPWRITE_PROJECT_ID']) // Your project ID
-    .setKey(process.env['APPWRITE_FUNCTION_API_KEY']); // Your secret API key
+  // const client = new sdk.Client()
+  //   .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+  //   .setProject(process.env['APPWRITE_PROJECT_ID']) // Your project ID
+  //   .setKey(process.env['APPWRITE_FUNCTION_API_KEY']); // Your secret API key
 
   if (req.method === 'GET') {
     try {
