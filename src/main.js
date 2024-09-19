@@ -8,10 +8,10 @@ module.exports = async function ({ req, res }) {
 
   if (req.method === 'GET') {
     try {
-      const users = new sdk.Users(client);
-      const result = await users.list();
-      console.log({ result });
-      return res.send({ message: 'Successfull', data: result }, 200);
+      // const users = new sdk.Users(client);
+      // const result = await users.list();
+      // console.log({ result });
+      return res.send({ message: 'Successfull' }, 200);
     } catch (error) {
       // log('Error: ', getError);
       return res.send(
