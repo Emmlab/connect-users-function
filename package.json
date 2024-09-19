@@ -10,7 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "node-appwrite": "^14.1.0",
-    "undici": "^6.19.8"
+    "node-appwrite": "^14.1.0"
   }
 }
