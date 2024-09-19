@@ -7,11 +7,4 @@ const client = new sdk.Client()
 
 const users = new sdk.Users(client);
 
-const result = await users.list();
-
-// const result = await users
-//   .list(
-//     // [], // queries (optional)
-//     // '<SEARCH>' // search (optional)
-//   );
-console.log({ result });
+export { users };
