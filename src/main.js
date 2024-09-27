@@ -10,7 +10,6 @@ module.exports = async function ({ req, res, log, error }) {
     try {
       const users = new sdk.Users(client);
       const data = await users.list();
-      log({ data });
       return res.send(data, 200);
     } catch (errorResponse) {
       error('Error: ', errorResponse);
